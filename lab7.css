@@ -1,0 +1,75 @@
+#userinput {
+    color: maroon;
+    font-size: 2em;
+    background-color: lightgray;
+    border-style: double;
+    height: 30vh;
+    width: 98vw;
+    display: inline-block;
+}
+
+#result {
+    font-size: 2em;
+    color: black;
+}
+
+#level {
+    color: green;
+}
+
+#levelcontainer {
+    font-size: 1em;
+}
+
+#goal {
+    color: black;
+    text-shadow: 1px 1px #FF0000;
+    font-size: 3em;
+    height: 3em;
+    margin-left: 5%;
+}
+
+#score {
+    color: blue;
+}
+
+#highscore {
+    color: gold;
+}
+
+#timer {
+    font-size: 3em;
+    position: relative;
+    border-color: black;
+    left: 50%;
+    margin: 1%;
+    border-style: solid;
+    padding: 15px;
+    border-radius: 500px;
+    border-width: 10px;
+    box-shadow: midnightblue;
+    background-color: white;
+}
+
+.prompt {
+    display: inline-block;
+}
+
+.info {
+    float: right;
+    margin-right: 1%;
+    border: black;
+    border-style: solid;
+    border-radius: 1px;
+    border-width: 1px;
+    padding: 20px;
+}
+
+button {
+    border-radius: 50px;
+    border-width: 10px;
+    box-shadow: midnightblue;
+    background-color: mintcream;
+    font-size: 2em;
+    padding: 20px;
+}
