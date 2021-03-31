@@ -1,7 +1,11 @@
+body {
+    background-image: url("images/bg.jpeg");
+    background-size: cover;
+}
 #userinput {
-    color: maroon;
+    color: darkblue;
     font-size: 2em;
-    background-color: lightgray;
+    background-color: white;
     border-style: double;
     height: 30vh;
     width: 98vw;
