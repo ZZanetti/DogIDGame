@@ -26,6 +26,8 @@
     text-shadow: 1px 1px #FF0000;
     font-size: 3em;
     height: 3em;
+}
+#goalcontain {
     margin-left: 5%;
 }
 
@@ -53,6 +55,7 @@
 
 .prompt {
     display: inline-block;
+    width: 75vw;
 }
 
 .info {
