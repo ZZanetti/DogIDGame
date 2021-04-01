@@ -108,12 +108,13 @@ window.addEventListener("keypress", function (event) {
       ++j;
     } 
     const result = document.getElementById("result");
+    result.style.textAlign = "center";
     result.textContent = "Good Job!";
     var mytime = document.getElementById("timer").textContent;
     score = score + 30 - Number(mytime);
     document.getElementById("score").textContent = score;
     next = document.createElement('button');
-    document.getElementById("buttoncontainer").appendChild(next);
+    document.getElementById("next").appendChild(next);
     next.textContent = "Next Question";
     next.addEventListener('click', nextChallenge);
     function nextChallenge() {
@@ -145,7 +146,7 @@ window.onload = function(){
   document.getElementById("hintButton").addEventListener('click', hint);
   timing = document.createElement('span');
   timing.id = "timer"
-  document.body.appendChild(timing);
+  document.getElementById("buttoncontainer").appendChild(timing);
   document.getElementById("timer").textContent = 0;
 }
 
