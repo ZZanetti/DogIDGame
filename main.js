@@ -113,7 +113,7 @@ window.addEventListener("keypress", function (event) {
     score = score + 30 - Number(mytime);
     document.getElementById("score").textContent = score;
     next = document.createElement('button');
-    document.getElementById("buttons").appendChild(next);
+    document.getElementById("buttoncontainer").appendChild(next);
     next.textContent = "Next Question";
     next.addEventListener('click', nextChallenge);
     function nextChallenge() {
