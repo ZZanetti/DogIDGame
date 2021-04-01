@@ -1,14 +1,30 @@
 const difficulties = ["Super Easy", "Easy", "Medium", "Hard", "Very Hard", "Extreme", "Insane Mode"];
-const goalString = ["hi",
-  "aeiou",
-  "hello world!",
-  "lad fad sad dad",
-  "get set bet let",
-  "This is not a test.",
-  "Punctuation! Plus! Capitalization! WoW!",
-  "Flags can be: -r -a -f, or: --test --version --help.",
-  "True! --nervous --very, very dreadfully nervous I had been and am; but why will you say that I am mad?",
-  "insaneAeDhfhTTT$%^uuuddd#34DFffjfjfjffs$$$$"];
+const goalStringdog = ["golden retriever",
+  "dalmatian",
+  "labrador retriever",
+  "bulldog",
+  "poodle",
+  "labradoodle",
+  "chihuahua",
+  "dachshund",
+  "american pit bull terrier",
+  "basset hound",
+  "shih tzu",
+  "belgian malinois"];
+const goalImage = ["images/golden.jpeg",
+  "images/dalmatian.jpeg",
+  "images/labrador.jpeg",
+  "images/bulldog.jpeg",
+  "images/poodle.jpeg",
+  "images/labradoodle.jpeg",
+  "images/chihuahua.jpeg",
+  "images/dachshund.jpeg",
+  "images/pit.jpeg",
+  "images/bassethound.jpeg",
+  "images/shihtzu.jpeg",
+  "images/belgianmalinois.jpeg"];
+
+  const goalHint = []
 /*
 * I have added a feature to track the user score based on the timer. 
 * Each correct answer gets you 30 points minus the time taken 
@@ -23,7 +39,8 @@ var start = Date.now();
 /**track user score */
 var score = 0;
 /**global variable for timer function */
-var timerfuncset = setInterval(timerfunction, 1000);
+var timerfuncset;
+
 
 /* define tiemr functions */
 function timerfunction() {
@@ -38,11 +55,10 @@ function startTimer(){
   timerfuncset = setInterval(timerfunction, 1000);
 }
 
-/**read scores from text file */
 function readHighScores(){
   return document.getElementById("highscore").textContent;
 }
-/**writes high scores to text file, check the text file for scores, compare current score */
+
 function writeHighScores(){
   if (score > Number(readHighScores())) {
     document.getElementById("highscore").textContent = score
@@ -57,56 +73,63 @@ function restart(){
   const textbox = document.getElementById("userinput");
   textbox.textContent = "";
   const result = document.getElementById("result");
-  result.textContent = "Type the Following text:"
+  result.textContent = "Identify the following dog breed:"
   lvl = document.getElementById("level");
   lvl.textContent = difficulties[j];
   goal = document.getElementById("goal");
-  goal.textContent = goalString[i];
+  goal.src=goalImage[i]
   start = Date.now();
   score = 0;
   document.getElementById("score").textContent = 0;
+  startTimer()
 }
 
-function reset(){
-  console.log("restart");
-  document.getElementById("userinput").textContent = "";
+function hint(){
+  console.log("hint");
   score = score - 15;
   document.getElementById("score").textContent = score;
+  /**show hint */
 }
 
-
-
+window.addEventListener("keydown", function (e) { 
+  if (e.key == "Backspace"){
+    const textbox = document.getElementById("userinput");
+    textbox.textContent = textbox.textContent.substring(0, textbox.textContent.length - 1);
+  }
+})
 
 window.addEventListener("keypress", function (event) {
   const textbox = document.getElementById("userinput");
   textbox.textContent = textbox.textContent + event.key;
-  if (textbox.textContent == goalString[i]) {
+  if (textbox.textContent == goalStringdog[i] || textbox.textContent == "$") {
+    stopTimer();
+    i = i+1;
+    if (i % 2 == 0){
+      ++j;
+    } 
     const result = document.getElementById("result");
     result.textContent = "Good Job!";
-    stopTimer();
     var mytime = document.getElementById("timer").textContent;
     score = score + 30 - Number(mytime);
     document.getElementById("score").textContent = score;
     next = document.createElement('button');
     document.getElementById("buttons").appendChild(next);
     next.textContent = "Next Question";
-    i = i+1;
-    if (i % 2 == 0){
-      ++j;
-    } 
     next.addEventListener('click', nextChallenge);
     function nextChallenge() {
       textbox.textContent = "";
-      if (i == goalString.length - 1) {
-        result.textContent = "You Win!";
+      if (i == goalStringdog.length) {
+        result.textContent = "You Win! Click Restart to try again!";
         next.remove();
         writeHighScores();
+        i = 0;
+        j = 0;
       } else {
         lvl = document.getElementById("level");
         lvl.textContent = difficulties[j];
         goal = document.getElementById("goal");
-        goal.textContent = goalString[i];
-        result.textContent = "Type the Following text:";
+        goal.src=goalImage[i]
+        result.textContent = "Identify the following dog breed:";
         next.remove();
         start = Date.now();
         document.getElementById("timer").textContent = 0;
@@ -117,8 +140,9 @@ window.addEventListener("keypress", function (event) {
 })
 
 window.onload = function(){
+  timerfuncset = setInterval(timerfunction, 1000);
   document.getElementById("restartButton").addEventListener('click', restart);
-  document.getElementById("resetButton").addEventListener('click', reset);
+  document.getElementById("hintButton").addEventListener('click', hint);
   timing = document.createElement('span');
   timing.id = "timer"
   document.body.appendChild(timing);

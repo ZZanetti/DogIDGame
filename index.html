@@ -5,27 +5,33 @@
   </head>
   <body>
     <div class="prompt">
-      <h3 id="result">Type the Following text:</h3>
-      <h3 id="goalcontain"><strong id="goal">hi</strong></h3>
+      <div id="result">
+        <span>Identify the following dog breed:</span>
+      </div>
+      <div id="goalcontain">
+        <img id="goal" src="images/golden.jpeg" alt="">
+      </div>
     </div>
     <div class="info">
-      <h3 id="levelcontainer">Difficulty: <span id="level">Super Easy</span></h3>
-      <h3 id="scorecontainer">Score: <span id="score">0</span></h3>
-      <h3 id="scorecontainer">Highscore: <span id="highscore">0</span></h3>
+      <div id="levelcontainer">
+        Difficulty: 
+        <span id="level">Super Easy</span>
+      </div>
+      <div id="scorecontainer">
+        Score: 
+        <span id="score">0</span>
+      </div>
+      <div id="scorecontainer">
+        Highscore: 
+        <span id="highscore">0</span>
+      </div>
     </div>
-    <div>
+    <div id="inputcontainer">
       <p id="userinput"></p>
     </div>
-    <div id="buttons">
+    <div id="buttoncontainer">
       <button id="restartButton">Restart</button>
-      <button id="resetButton">Reset</button>
+      <button id="hintButton">Hint</button>
     </div>
 </body>
-<!-- need to add txt file to track 3 fastest finishes, 
-  function automatically replaces if
-  you get to the end 
-  and it is faster than any of the times
-  change background color
-  highlight correct text (span + span)
--->
 </html>
