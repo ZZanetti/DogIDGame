@@ -1,8 +1,21 @@
 const difficulties = ["Super Easy", "Easy", "Medium", "Hard", "Very Hard", "Extreme", "Insane Mode"];
+const goalHints = ["***use all lower case letters and make sure to spell correctly!",
+  "golden r______r",
+  "___matian",
+  "_______ retriever",
+  "american ____dog",
+  "oh please, you know this!",
+  "combination of two previous breeds",
+  "Yo Quiero Taco Bell!",
+  "__shch___",
+  "[country-identifier] ___ ____ terrier",
+  "______ hound",
+  "not shit",
+  "[country-indentifier] [sounds-like-new-waaahhh]"]
 const goalStringdog = ["golden retriever",
   "dalmatian",
   "labrador retriever",
-  "bulldog",
+  "american bulldog",
   "poodle",
   "labradoodle",
   "chihuahua",
@@ -24,7 +37,7 @@ const goalImage = ["images/golden.jpeg",
   "images/shihtzu.jpeg",
   "images/belgianmalinois.jpeg"];
 
-  const goalHint = []
+
 /*
 * I have added a feature to track the user score based on the timer. 
 * Each correct answer gets you 30 points minus the time taken 
@@ -72,6 +85,7 @@ function restart(){
   j = 0;
   const textbox = document.getElementById("userinput");
   textbox.textContent = "";
+  document.getElementById("hint").textContent = goalHints[0];
   const result = document.getElementById("result");
   result.textContent = "Identify the following dog breed:"
   lvl = document.getElementById("level");
@@ -88,6 +102,7 @@ function hint(){
   console.log("hint");
   score = score - 15;
   document.getElementById("score").textContent = score;
+  document.getElementById("hint").textContent = goalHints[i+1];
   /**show hint */
 }
 

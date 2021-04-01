@@ -58,9 +58,9 @@ body {
     border-width: 2px;*/
     box-shadow: midnightblue;
     background-image: url("images/clock2.png");
-    background-size: 200px;
+    background-size: 150px;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: center center;
 }
 
 .prompt {
@@ -100,4 +100,18 @@ button {
 #buttoncontainer {
     margin-left: auto;
     margin-right: auto;
+}
+
+#hintcontainer {
+    float: right;
+    border: black;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    padding: 20px;
+    background-color: rgb(240, 248, 255, 0.6);
+    font-size: 1em;
+    font-weight: bold;
+    color: black;
+    margin-right: 5%;
 }
