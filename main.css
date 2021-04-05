@@ -1,7 +1,49 @@
 body {
     background-image: url("images/bg.jpeg");
     background-size: cover;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+button {
+    border-radius: 50px;
+    border-width: 10px;
+    box-shadow: midnightblue;
+    background-color: mintcream;
+    font-size: 2em;
+    padding: 20px;
+}
+
+.prompt {
+    display: inline-block;
+    background-color: rgb(240, 248, 255, 0.3);
+    margin-right: 1%;
+    border: black;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    padding: 20px;
+    width: 33vw;
+}
+
+.info {
+    float: right;
+    margin-right: 1%;
+    border: black;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    padding: 20px;
+    background-color: rgb(240, 248, 255, 0.3);
+    font-size: 3em;
+    color: black;
+}
+
+#result {
+    font-size: 2em;
+    color: black;
+    text-align: left;
+}
+
 #userinput {
     color: darkblue;
     font-size: 3em;
@@ -16,10 +58,7 @@ body {
     margin-right: auto;
 }
 
-#result {
-    font-size: 2em;
-    color: black;
-}
+
 
 #level {
     color: green;
@@ -32,7 +71,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    height: 300px;
 }
 #goalcontain {
     margin-left: auto;
@@ -51,50 +90,11 @@ body {
     font-size: 2em;
     padding: 80px;
     color: midnightblue;
-    /*border-style: solid;
-    border-color: black;
-    padding: 15px;
-    border-radius: 500px;
-    border-width: 2px;*/
     box-shadow: midnightblue;
     background-image: url("images/clock2.png");
     background-size: 150px;
     background-repeat: no-repeat;
     background-position: center center;
-}
-
-.prompt {
-    display: inline-block;
-    background-color: rgb(240, 248, 255, 0.3);
-    margin-right: 1%;
-    border: black;
-    border-style: solid;
-    border-radius: 25px;
-    border-width: 1px;
-    padding: 20px;
-    width: 25vw;
-}
-
-.info {
-    float: right;
-    margin-right: 1%;
-    border: black;
-    border-style: solid;
-    border-radius: 25px;
-    border-width: 1px;
-    padding: 20px;
-    background-color: rgb(240, 248, 255, 0.3);
-    font-size: 3em;
-    color: black;
-}
-
-button {
-    border-radius: 50px;
-    border-width: 10px;
-    box-shadow: midnightblue;
-    background-color: mintcream;
-    font-size: 2em;
-    padding: 20px;
 }
 
 #buttoncontainer {

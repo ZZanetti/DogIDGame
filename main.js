@@ -1,3 +1,5 @@
+
+
 const difficulties = ["Super Easy", "Easy", "Medium", "Hard", "Very Hard", "Extreme", "Insane Mode"];
 const goalHints = ["***use all lower case letters and make sure to spell correctly!",
   "golden r______r",
@@ -42,16 +44,14 @@ const goalImage = ["images/golden.jpeg",
 * I have added a feature to track the user score based on the timer. 
 * Each correct answer gets you 30 points minus the time taken 
 * When you finish the game, if your score is higher than the current high score, it records and displays
-* I also added a reset button so you can cheat and reset the textbox
-* If you reset you get -15 points 
+* I also added the ability to use the backspace.
+* I also added hints, if you use a hint you get -15 points
 */
 
 var i = 0;
 var j = 0;
 var start = Date.now();
-/**track user score */
 var score = 0;
-/**global variable for timer function */
 var timerfuncset;
 
 
@@ -59,7 +59,7 @@ var timerfuncset;
 function timerfunction() {
   end = Date.now();
   diff = (end - start)/1000;
-  timing.textContent = diff.toFixed(0);
+  timing.textContent = Math.floor(diff);
 }
 function stopTimer(){
   clearInterval(timerfuncset);
@@ -80,22 +80,17 @@ function writeHighScores(){
 
 function restart(){
   console.log("restart");
-  document.getElementById("userinput").textContent = "";
   i = 0;
   j = 0;
-  const textbox = document.getElementById("userinput");
-  textbox.textContent = "";
-  document.getElementById("hint").textContent = goalHints[0];
-  const result = document.getElementById("result");
-  result.textContent = "Identify the following dog breed:"
-  lvl = document.getElementById("level");
-  lvl.textContent = difficulties[j];
-  goal = document.getElementById("goal");
-  goal.src=goalImage[i]
   start = Date.now();
   score = 0;
+  document.getElementById("userinput").textContent = "";
+  document.getElementById("hint").textContent = goalHints[0];
+  document.getElementById("result").textContent = "Identify the following dog breed:";
   document.getElementById("score").textContent = 0;
-  startTimer()
+  document.getElementById("level").textContent = difficulties[j];
+  document.getElementById("goal").src=goalImage[i];
+  startTimer();
 }
 
 function hint(){
@@ -166,3 +161,33 @@ window.onload = function(){
 }
 
 
+/**
+ * PREVIEW OF HOW I WILL CHANGE THE CODING OF THE GAME TO BE OBJECT ORIENTED 
+ *      Game = {}
+ *      Game.Timer = {}
+ *      Game.keypress = function(){handle typing}
+ *      Game.keydown = function(){} or object handling more than backspace
+ *      Game.Load = function(){
+ *                    does what onload does,
+ *                    onload should only call this function
+ *                    }
+ *      Game.Reset = function(){}
+ *      Game.Hint = function(){}
+ *      Game.Level = 0 //number
+ *      Game.Difficulty = [array]
+ *      Game.Score = {
+ *                    score: 0,
+ *                    highscore: GetHighScore()
+ *                    } 
+        Game.Dogs = {}
+        Game.Dogs.GldnR =  {
+          name: "Golden Retriever",
+          hint: "______ __triever",
+          images: [img1,
+                  img2,
+                  img3],
+          gifs: function(timer){
+                  apicall
+                } //or list 
+        }
+ */
